@@ -1,25 +1,62 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    line-height: 1.5;
-  }
-
-  main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: white;
-  } 
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-  .container {
-    width: 325px;
-    margin: 25px 0;
-    background-color: blue;
-    border: 1px solid #f5f6f7;
-    border-radius: 15px;
-    box-shadow: 10px 10px 0px 0px rgba(223, 220, 220, 0.75);
-  }
+.calculadora {
+    width: 350px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.pantalla {
+    width: 100%;
+    height: 50px;
+    background-color: #222;
+    color: #fff;
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.boton {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.boton:active {
+    background-color: #ccc;
+}
+
+.boton-operacion {
+    background-color: #f9a825;
+    color: white;
+}
+
+.boton-operacion:active {
+    background-color: #f57f17;
+}
+

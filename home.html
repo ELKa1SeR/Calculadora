@@ -18,15 +18,39 @@
         src="imagenes/image.png"
         alt="nter Logo"
       />
-    <div class="container">
-        <div class="pantalla">
-            <inputtype="text"id="num1"placeholder="Primer número">
-		    <inputtype="text"id="num2"placeholder="Segundo número">
-            <inputtype="text"id="resultado"disabled> /
-        </div>
+      <div class="calculadora">
+        <div class="pantalla" id="pantalla">0</div>
         <div class="botones">
-            
+            <button class="boton" onclick="encender()">ON</button>
+            <button class="boton" onclick="memory()">M+</button>
+            <button class="boton" onclick="resetMemory()">MC</button>
+            <button class="boton" onclick="recoveryMemory()">MR</button>
+            <button class="boton" onclick="apagar()">OFF</button>
            
+            <button class="boton" onclick="ingresarNumero('7')">7</button>
+            <button class="boton" onclick="ingresarNumero('8')">8</button>
+            <button class="boton" onclick="ingresarNumero('9')">9</button>
+            <button class="boton boton-operacion" onclick="porcentaje()">%</button>
+            <button class="boton" onclick="errorCe()">CE</button>
+
+            <button class="boton" onclick="ingresarNumero('4')">4</button>
+            <button class="boton" onclick="ingresarNumero('5')">5</button>
+            <button class="boton" onclick="ingresarNumero('6')">6</button>
+            <button class="boton boton-operacion" onclick="multiplicar()">X</button>
+            <button class="boton boton-operacion" onclick="dividir()">/</button>
+
+            <button class="boton" onclick="ingresarNumero('1')">1</button>
+            <button class="boton" onclick="ingresarNumero('2')">2</button>
+            <button class="boton" onclick="ingresarNumero('3')">3</button>
+            <button class="boton boton-operacion" onclick="sumar()">+</button>
+            <button class="boton boton-operacion" onclick="restar()">-</button>
+
+            <button class="boton" onclick="ingresarNumero('0')">0</button>
+            <button class="boton" onclick="ingresarNumero('00')">00</button>
+            <button class="boton" onclick="ingresarNumero('.')">.</button>
+            <button class="boton boton-operacion" onclick="sumar()">+</button>
+            <button class="boton boton-operacion" onclick="calcular()">=</button>
+            
         </div>
     </div>
     <script src="script.js"></script>
