@@ -60,3 +60,7 @@ body {
     background-color: #f57f17;
 }
 
+.doble-columna {
+    grid-row: span 2;
+}
+
