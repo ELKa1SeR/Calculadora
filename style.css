@@ -1,34 +1,49 @@
 body {
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: 65vh;
     background-color: #f0f0f0;
     margin: 0;
     font-family: Arial, sans-serif;
     align-content: stretch;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
-
+.rectangulo {
+    background-color: #632e18;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    width: 150px;
+    grid-template-columns: repeat(4, 1fr)
+}
 .calculadora {
     width: 350px;
-    background-color: white;
+    background-color: #f0abc9 ;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 2px 1px rgba(245, 87, 87, 0.692);
     padding: 20px;
+    border-color: #632e18;
+  
+    
 }
 
 .pantalla {
     width: 100%;
-    height: 50px;
-    background-color: #222;
+    height: 85px;
+    background-color: #aab2b2;
+    border-color:#632e18;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
     color: #fff;
     text-align: right;
     padding: 10px;
-    font-size: 24px;
-    border-radius: 5px;
+    font-size: 45px;
+   
     margin-bottom: 20px;
     box-sizing: border-box;
+    box-shadow: 2px 2px 2px 1px rgba(245, 87, 87, 0.692);
 }
 
 .botones {
@@ -41,28 +56,33 @@ body {
     width: 100%;
     padding: 15px;
     font-size: 18px;
-    background-color: #eee;
-    border: none;
-    border-radius: 5px;
+    font-weight: bold;
+    color: #632e18;
+    background-color: #c6e6f7 ;
+    border-color:#632e18;
+    box-shadow: 2px 2px 2px 1px rgba(112, 219, 233, 0.692);
+    border-radius: 10px;
     cursor: pointer;
     box-sizing: border-box;
     transition: background-color 0.3s;
 }
 
 .boton:active {
-    background-color: #ccc;
+    background-color: #c6e6f7 ;
+    
 }
 
-.boton-operacion {
-    background-color: #f9a825;
-    color: white;
+.boton-p1 {
+    background-color: #c6e6f7 ;
+    border-radius: 20px;
+    gap: 5px
+    
 }
 
-.boton-operacion:active {
-    background-color: #f57f17;
+.boton-p1 :active {
+    background-color: #c6e6f7 ;
 }
 
 .doble-columna {
     grid-row: span 2;
 }
-

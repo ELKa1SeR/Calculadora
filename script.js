@@ -1,5 +1,5 @@
 
-//  ON: Encendido de la calculadora. 
+// ON: Encendido de la calculadora. 
 //Si no está encendida, no se visualiza nada en
 //la pantalla aunque haya interacciones con los demás botones.
 //function encender();
@@ -41,5 +41,27 @@
 // visualiza el resultado.
 //function calcular()
 
+class calculadora{
+    constructor() {
+        this.encendida = false;
+        this.pantalla = "";
+        this.memoria = 0;
+        this.operacionActual = "";
+    }
 
+    encender() {
+        this.encendida = true;
+        this.pantalla = "";
+        this.actualizarPantalla();
+    }
+
+    apagar() {
+        this.encendida = false;
+        this.pantalla = "";
+        this.memoria = 0;
+        this.operacionActual = "";
+        this.actualizarPantalla();
+    }
+
+}
 
