@@ -41,27 +41,107 @@
 // visualiza el resultado.
 //function calcular()
 
-class calculadora{
-    constructor() {
-        this.encendida = false;
-        this.pantalla = "";
-        this.memoria = 0;
-        this.operacionActual = "";
+
+let memory = 0;
+let currentInput = '';
+let operator = '';
+let resultDisplayed = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const pantalla = document.getElementById('pantalla');
+
+    document.getElementById('on-btn').addEventListener('click', encender);
+    document.getElementById('memory-btn').addEventListener('click', memoryFunction);
+    document.getElementById('reset-memory-btn').addEventListener('click', resetMemory);
+    document.getElementById('recovery-memory-btn').addEventListener('click', recoveryMemory);
+    document.getElementById('off-btn').addEventListener('click', apagar);
+
+    function encender() {
+        pantalla.textContent = '0';
     }
 
-    encender() {
-        this.encendida = true;
-        this.pantalla = "";
-        this.actualizarPantalla();
+    function memoryFunction() {
+        memory = parseFloat(pantalla.textContent);
     }
 
-    apagar() {
-        this.encendida = false;
-        this.pantalla = "";
-        this.memoria = 0;
-        this.operacionActual = "";
-        this.actualizarPantalla();
+    function resetMemory() {
+        memory = 0;
     }
 
-}
+    function recoveryMemory() {
+        pantalla.textContent = memory.toString();
+    }
+
+    function apagar() {
+        pantalla.textContent = '';
+    }
+
+    window.ingresarNumero = function(num) {
+        if (resultDisplayed) {
+            pantalla.textContent = num;
+            resultDisplayed = false;
+        } else {
+            pantalla.textContent === '0' ? pantalla.textContent = num : pantalla.textContent += num;
+        }
+    }
+
+    window.porcentaje = function() {
+        pantalla.textContent = (parseFloat(pantalla.textContent) / 100).toString();
+    }
+
+    window.errorCe = function() {
+        pantalla.textContent = '0';
+    }
+
+    window.multiplicar = function() {
+        setOperator('X');
+    }
+
+    window.dividir = function() {
+        setOperator('/');
+    }
+
+    window.sumar = function() {
+        setOperator('+');
+    }
+
+    window.restar = function() {
+        setOperator('-');
+    }
+
+    window.calcular = function() {
+        if (operator && currentInput) {
+            let result;
+            switch (operator) {
+                case '+':
+                    result = parseFloat(currentInput) + parseFloat(pantalla.textContent);
+                    break;
+                case '-':
+                    result = parseFloat(currentInput) - parseFloat(pantalla.textContent);
+                    break;
+                case 'X':
+                    result = parseFloat(currentInput) * parseFloat(pantalla.textContent);
+                    break;
+                case '/':
+                    result = parseFloat(currentInput) / parseFloat(pantalla.textContent);
+                    break;
+                default:
+                    return;
+            }
+            pantalla.textContent = result.toString();
+            currentInput = '';
+            operator = '';
+            resultDisplayed = true;
+        }
+    }
+
+    function setOperator(op) {
+        if (!resultDisplayed) {
+            currentInput = pantalla.textContent;
+        }
+        operator = op;
+        pantalla.textContent = '';
+    }
+});
+
 

@@ -4,23 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="imagenes/imageico.ico"
-    />
+    <link rel="icon" type="image/png" href="imagenes/imageico.ico" />
     <title>Calculadora Nter</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div></div>
-    <img
-        class="nter-logo"
-        src="imagenes/image.png"
-        alt="nter Logo"
-      />
-      <div class="calculadora">
+    <img class="nter-logo" src="imagenes/image.png" alt="nter Logo" />
+    <div class="calculadora">
         <div class="rectangulo">
             <div class="rectangulos"></div>
             <div class="rectangulos"></div>
@@ -31,13 +23,13 @@
             <div class="rectangulos"></div>
         </div>
         <div></div>
-        <div class="pantalla" id="pantalla"></div>
+        <div class="pantalla" id="pantalla">0</div>
         <div class="botones">
-            <button class="boton boton-p1" onclick="encender()">ON</button>
-            <button class="boton boton-p1" onclick="memory()">M+</button>
-            <button class="boton boton-p1" onclick="resetMemory()">MC</button>
-            <button class="boton boton-p1" onclick="recoveryMemory()">MR</button>
-            <button class="boton boton-p1" onclick="apagar()">OFF</button>
+            <button class="boton boton-p1" id="on-btn">ON</button>
+            <button class="boton boton-p1" id="memory-btn">M+</button>
+            <button class="boton boton-p1" id="reset-memory-btn">MC</button>
+            <button class="boton boton-p1" id="recovery-memory-btn">MR</button>
+            <button class="boton boton-p1" id="off-btn">OFF</button>
            
             <button class="boton" onclick="ingresarNumero('7')">7</button>
             <button class="boton" onclick="ingresarNumero('8')">8</button>
@@ -61,9 +53,7 @@
             <button class="boton" onclick="ingresarNumero('00')">00</button>
             <button class="boton" onclick="ingresarNumero('.')">.</button>
             <button class="boton boton-operacion" onclick="calcular()">=</button>
-
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

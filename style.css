@@ -2,7 +2,7 @@ body {
     display: flex;
     align-items: center;
     height: 65vh;
-    background: rgb(238, 232, 232);
+    background: linear-gradient(#e96021, white, blue);
     margin: 0;
     font-family: Arial, sans-serif;
     align-content: stretch;
@@ -13,13 +13,13 @@ body {
     float: right;
     background: #632e18;
     padding: 1px;
-    margin: 10px;
+    margin: 15px;
     display: flex;
     width: 180px;
   
 }
 .rectangulos {
-    background-color: #37251d;
+    background-color:#4b4644;
     padding: 10px;
     margin: 3px;
     grid-template-columns: repeat(1, 1fr);
@@ -28,15 +28,13 @@ body {
 .calculadora {
     width: 350px;
     background: linear-gradient(#f1b9d1 ,#cc7090 );
-    
     border-radius: 10px;
     box-shadow: 8px 2px 2px 1px rgba(245, 87, 87, 0.692);
     outline:3px solid;
     outline-color: #632e18;
     padding: 20px;
     border-color: #632e18;
-  
-    
+   
 }
 
 .pantalla {
@@ -51,10 +49,9 @@ body {
     font-size: 45px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    
     margin-bottom: 20px;
     box-sizing: border-box;
-    box-shadow: 6px 2px 2px 1px #9a9088 inset ;
+    box-shadow: 0px 2px 2px 8px #9a9088 inset ;
     outline:3px solid;
     outline-color: #632e18;
     padding: 20px;
@@ -69,36 +66,44 @@ body {
 }
 
 .boton {
-    width: 100%;
-    font-size: 18px;
-    font-weight: bold;
+    width: 90%;
+    font-size: 29px;
+    font-weight:bolder;
     color: #632e18;
     background-color: #c6e6f7 ;
     border-color:#632e18;
-    box-shadow: 2px 2px 2px 1px rgba(112, 219, 233, 0.692);
+    box-shadow: 6px 2px 2px 1px rgba(112, 219, 233, 0.692);
     border-radius: 10px;
     cursor: pointer;
     box-sizing: border-box;
-    padding: 15px;
-    outline:1px solid;
+    padding: 7px;
+    border: 2px solid;
+    outline-offset: 1px;
+    outline: 2px solid;
     outline-color: #632e18;
     border-color: #632e18;
+    
+}
+
+.boton:hover{
+    background-color: aqua;
 }
 
 .boton:active {
-    background-color: #c6e6f7 ;
+    background-color: #4b9eca ;
     
 }
 
 .boton-p1 {
     background-color: #c6e6f7 ;
     border-radius: 20px;
-    gap: 5px
+    border-color: #632e18;
+    gap: 5px;
     
 }
 
 .boton-p1 :active {
-    background-color: #c6e6f7 ;
+    background-color: #4b9eca ;
 }
 
 .doble-columna {
