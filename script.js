@@ -1,65 +1,27 @@
+// Inicialización de variables
+let memory = 0; // Almacena el valor de la memoria
+let currentInput = ''; // Almacena la entrada actual del usuario
+let operator = ''; // Almacena el operador matemático seleccionado
+let resultDisplayed = false; // Indica si se ha mostrado un resultado en la pantalla
+let isOn = false; // Indica si la calculadora está encendida
 
-// ON: Encendido de la calculadora. 
-//Si no está encendida, no se visualiza nada en
-//la pantalla aunque haya interacciones con los demás botones.
-//function encender();
-
-// OFF:Apagado de la calculadora. Elimina los datos de la visualización por la
-// pantalla, además debe de resetear los datos.
-// Function reset();
-
-// M+
-//  Ingresa el número que está en la pantalla a la memoria de la calculadora.
-// function memory();
-
-// MC
-// Elimina los datos guardados en la memoria de la calculadora.
-//function resetMemory();
-
-// MR
-// Recupera los datos de la memoria y los visualiza en la pantalla.
-// function recoveryMemory();
-
-// CE
-// Elimina el número mostrado en la pantalla. Se utiliza cuando se comete un
-// error en el ingreso de datos pero sin eliminar el cálculo realizado.
-// function  errorCe()
-
-//  Botones números
-//  Visualización de cada uno de ellos por pantalla.
-//1,2,3,4,5,6,7,8,9
-// Botones operaciones
-// + , - , * , / , % 
-//sumar function sumar()
-//restar function restar()
-//multiplicar function multiplicar()
-//dividir function dividir()
-//porcentaje function porcentaje()
-// Visualización del carácter por pantalla.
-// Botón igual ( = )
-// Realiza la operación que se muestra por pantalla, limpia la pantalla y
-// visualiza el resultado.
-//function calcular()
-
-
-let memory = 0;
-let currentInput = '';
-let operator = '';
-let resultDisplayed = false;
-let isOn = false;
-
+// Espera a que el contenido del documento esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
+    // Obtiene referencias a los elementos de la pantalla y los botones
     const pantalla = document.getElementById('pantalla');
     const botones = document.querySelectorAll('.boton');
 
+    // Añade eventos a los botones de encendido y apagado
     document.getElementById('on-btn').addEventListener('click', encender);
     document.getElementById('off-btn').addEventListener('click', apagar);
 
+    // Añade eventos a los otros botones
     botones.forEach(boton => {
         if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
             boton.addEventListener('click', () => {
-                if (!isOn) return;
+                if (!isOn) return; // Si la calculadora está apagada, no hacer nada
 
+                // Selecciona la acción según el botón presionado
                 switch (boton.id) {
                     case 'memory-btn':
                         memoryFunction();
@@ -132,30 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Función para encender la calculadora
     function encender() {
         pantalla.textContent = '0';
         isOn = true;
         habilitarBotones();
     }
 
+    // Función para apagar la calculadora
     function apagar() {
         pantalla.textContent = '';
         isOn = false;
         deshabilitarBotones();
     }
 
+    // Función para almacenar el valor de la pantalla en la memoria
     function memoryFunction() {
         memory = parseFloat(pantalla.textContent);
     }
 
+    // Función para resetear la memoria
     function resetMemory() {
         memory = 0;
     }
 
+    // Función para recuperar el valor almacenado en la memoria y mostrarlo en la pantalla
     function recoveryMemory() {
         pantalla.textContent = memory.toString();
     }
 
+    // Función para ingresar números en la pantalla
     function ingresarNumero(num) {
         if (resultDisplayed) {
             pantalla.textContent = num;
@@ -165,30 +133,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Función para calcular el porcentaje del valor actual en la pantalla
     function porcentaje() {
         pantalla.textContent = (parseFloat(pantalla.textContent) / 100).toString();
     }
 
+    // Función para resetear la pantalla a '0'
     function errorCe() {
         pantalla.textContent = '0';
     }
 
+    // Función para almacenar el operador de multiplicación y preparar el cálculo
     function multiplicar() {
         setOperator('X');
     }
 
+    // Función para almacenar el operador de división y preparar el cálculo
     function dividir() {
         setOperator('/');
     }
 
+    // Función para almacenar el operador de suma y preparar el cálculo
     function sumar() {
         setOperator('+');
     }
 
+    // Función para almacenar el operador de resta y preparar el cálculo
     function restar() {
         setOperator('-');
     }
 
+    // Función para realizar el cálculo basado en el operador almacenado
     function calcular() {
         if (operator && currentInput) {
             let result;
@@ -215,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Función para configurar el operador matemático
     function setOperator(op) {
         if (!resultDisplayed) {
             currentInput = pantalla.textContent;
@@ -223,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pantalla.textContent = '';
     }
 
+    // Función para habilitar los botones
     function habilitarBotones() {
         botones.forEach(boton => {
             if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
@@ -231,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Función para deshabilitar los botones
     function deshabilitarBotones() {
         botones.forEach(boton => {
             if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
@@ -239,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicialmente deshabilitar los botones
+    // Inicialmente deshabilita los botones
     deshabilitarBotones();
 });
+
