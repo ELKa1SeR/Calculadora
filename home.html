@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="imagenes/imageico.ico" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imagenes/imageico.ico">
     <title>Calculadora Nter</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <div></div>
-    <img class="nter-logo" src="imagenes/image.png" alt="nter Logo" />
+    <img class="nter-logo" src="imagenes/image.png" alt="nter Logo">
+  <div class="calculadora-container">
     <div class="calculadora">
         <div class="rectangulo">
             <div class="rectangulos"></div>
@@ -23,7 +24,7 @@
             <div class="rectangulos"></div>
         </div>
         <div></div>
-        <div class="pantalla" id="pantalla">0</div>
+        <div class="pantalla" id="pantalla"></div>
         <div class="botones">
             <button class="boton boton-p1" id="on-btn">ON</button>
             <button class="boton boton-p1" id="memory-btn">M+</button>
@@ -31,29 +32,30 @@
             <button class="boton boton-p1" id="recovery-memory-btn">MR</button>
             <button class="boton boton-p1" id="off-btn">OFF</button>
            
-            <button class="boton" onclick="ingresarNumero('7')">7</button>
-            <button class="boton" onclick="ingresarNumero('8')">8</button>
-            <button class="boton" onclick="ingresarNumero('9')">9</button>
-            <button class="boton boton-operacion" onclick="porcentaje()">%</button>
-            <button class="boton" onclick="errorCe()">CE</button>
+            <button class="boton" id="boton-7">7</button>
+            <button class="boton" id="boton-8">8</button>
+            <button class="boton" id="boton-9">9</button>
+            <button class="boton boton-operacion" id="boton-percent">%</button>
+            <button class="boton" id="boton-ce">CE</button>
 
-            <button class="boton" onclick="ingresarNumero('4')">4</button>
-            <button class="boton" onclick="ingresarNumero('5')">5</button>
-            <button class="boton" onclick="ingresarNumero('6')">6</button>
-            <button class="boton boton-operacion" onclick="multiplicar()">X</button>
-            <button class="boton boton-operacion" onclick="dividir()">/</button>
+            <button class="boton" id="boton-4">4</button>
+            <button class="boton" id="boton-5">5</button>
+            <button class="boton" id="boton-6">6</button>
+            <button class="boton boton-operacion" id="boton-mul">X</button>
+            <button class="boton boton-operacion" id="boton-div">/</button>
 
-            <button class="boton" onclick="ingresarNumero('1')">1</button>
-            <button class="boton" onclick="ingresarNumero('2')">2</button>
-            <button class="boton" onclick="ingresarNumero('3')">3</button>
-            <button class="boton boton-operacion doble-columna" onclick="sumar()">+</button>
-            <button class="boton boton-operacion" onclick="restar()">-</button>
+            <button class="boton" id="boton-1">1</button>
+            <button class="boton" id="boton-2">2</button>
+            <button class="boton" id="boton-3">3</button>
+            <button class="boton boton-operacion doble-columna" id="boton-add">+</button>
+            <button class="boton boton-operacion" id="boton-sub">-</button>
 
-            <button class="boton" onclick="ingresarNumero('0')">0</button>
-            <button class="boton" onclick="ingresarNumero('00')">00</button>
-            <button class="boton" onclick="ingresarNumero('.')">.</button>
-            <button class="boton boton-operacion" onclick="calcular()">=</button>
+            <button class="boton" id="boton-0">0</button>
+            <button class="boton" id="boton-00">00</button>
+            <button class="boton" id="boton-dot">.</button>
+            <button class="boton boton-operacion" id="boton-eq">=</button>
         </div>
+    </div>
     </div>
 </body>
 </html>
