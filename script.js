@@ -46,18 +46,102 @@ let memory = 0;
 let currentInput = '';
 let operator = '';
 let resultDisplayed = false;
+let isOn = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     const pantalla = document.getElementById('pantalla');
+    const botones = document.querySelectorAll('.boton');
 
     document.getElementById('on-btn').addEventListener('click', encender);
-    document.getElementById('memory-btn').addEventListener('click', memoryFunction);
-    document.getElementById('reset-memory-btn').addEventListener('click', resetMemory);
-    document.getElementById('recovery-memory-btn').addEventListener('click', recoveryMemory);
     document.getElementById('off-btn').addEventListener('click', apagar);
+
+    botones.forEach(boton => {
+        if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
+            boton.addEventListener('click', () => {
+                if (!isOn) return;
+
+                switch (boton.id) {
+                    case 'memory-btn':
+                        memoryFunction();
+                        break;
+                    case 'reset-memory-btn':
+                        resetMemory();
+                        break;
+                    case 'recovery-memory-btn':
+                        recoveryMemory();
+                        break;
+                    case 'boton-0':
+                        ingresarNumero('0');
+                        break;
+                    case 'boton-00':
+                        ingresarNumero('00');
+                        break;
+                    case 'boton-1':
+                        ingresarNumero('1');
+                        break;
+                    case 'boton-2':
+                        ingresarNumero('2');
+                        break;
+                    case 'boton-3':
+                        ingresarNumero('3');
+                        break;
+                    case 'boton-4':
+                        ingresarNumero('4');
+                        break;
+                    case 'boton-5':
+                        ingresarNumero('5');
+                        break;
+                    case 'boton-6':
+                        ingresarNumero('6');
+                        break;
+                    case 'boton-7':
+                        ingresarNumero('7');
+                        break;
+                    case 'boton-8':
+                        ingresarNumero('8');
+                        break;
+                    case 'boton-9':
+                        ingresarNumero('9');
+                        break;
+                    case 'boton-dot':
+                        ingresarNumero('.');
+                        break;
+                    case 'boton-percent':
+                        porcentaje();
+                        break;
+                    case 'boton-ce':
+                        errorCe();
+                        break;
+                    case 'boton-mul':
+                        multiplicar();
+                        break;
+                    case 'boton-div':
+                        dividir();
+                        break;
+                    case 'boton-add':
+                        sumar();
+                        break;
+                    case 'boton-sub':
+                        restar();
+                        break;
+                    case 'boton-eq':
+                        calcular();
+                        break;
+                }
+            });
+        }
+    });
 
     function encender() {
         pantalla.textContent = '0';
+        isOn = true;
+        habilitarBotones();
+    }
+
+    function apagar() {
+        pantalla.textContent = '';
+        isOn = false;
+        deshabilitarBotones();
     }
 
     function memoryFunction() {
@@ -72,11 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pantalla.textContent = memory.toString();
     }
 
-    function apagar() {
-        pantalla.textContent = '';
-    }
-
-    window.ingresarNumero = function(num) {
+    function ingresarNumero(num) {
         if (resultDisplayed) {
             pantalla.textContent = num;
             resultDisplayed = false;
@@ -85,31 +165,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.porcentaje = function() {
+    function porcentaje() {
         pantalla.textContent = (parseFloat(pantalla.textContent) / 100).toString();
     }
 
-    window.errorCe = function() {
+    function errorCe() {
         pantalla.textContent = '0';
     }
 
-    window.multiplicar = function() {
+    function multiplicar() {
         setOperator('X');
     }
 
-    window.dividir = function() {
+    function dividir() {
         setOperator('/');
     }
 
-    window.sumar = function() {
+    function sumar() {
         setOperator('+');
     }
 
-    window.restar = function() {
+    function restar() {
         setOperator('-');
     }
 
-    window.calcular = function() {
+    function calcular() {
         if (operator && currentInput) {
             let result;
             switch (operator) {
@@ -142,6 +222,23 @@ document.addEventListener('DOMContentLoaded', () => {
         operator = op;
         pantalla.textContent = '';
     }
+
+    function habilitarBotones() {
+        botones.forEach(boton => {
+            if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
+                boton.disabled = false;
+            }
+        });
+    }
+
+    function deshabilitarBotones() {
+        botones.forEach(boton => {
+            if (boton.id !== 'on-btn' && boton.id !== 'off-btn') {
+                boton.disabled = true;
+            }
+        });
+    }
+
+    // Inicialmente deshabilitar los botones
+    deshabilitarBotones();
 });
-
-
