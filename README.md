@@ -16,8 +16,13 @@ Esta es una aplicación de calculadora básica desarrollada en HTML, CSS y JavaS
 
 3. Ejecución: 
 Para ejecutar la aplicación, simplemente abre el archivo index.html en tu navegador web.
-    Visionado: 
+    Visionado:
+   -Apagada:
 ![Captura de pantalla 2024-05-22 082237](https://github.com/ELKa1SeR/Calculadora/assets/127674382/f6819be4-3171-42df-8af1-969b10d9e367)
+
+   -Encendida:
+![Captura de pantalla 2024-05-22 082303](https://github.com/ELKa1SeR/Calculadora/assets/127674382/a5510da2-d4fd-43b3-9645-6de12256ade9)
+
 
 ## Estructura del Proyecto:
 -index.html: Archivo principal de la interfaz de usuario.
